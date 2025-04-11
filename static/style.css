@@ -1,0 +1,58 @@
+body {
+	font-family: system-ui, sans-serif;
+	max-width: 60em;
+	margin: 2em auto;
+	background: white;
+	color: black;
+	padding: 0rem 1rem;
+}
+
+a {
+	color: black;
+	text-decoration: underline;
+}
+
+h1, h2 {
+	margin-bottom: 0.5em;
+	border-bottom: 1px solid #999;
+}
+
+form, ul, p {
+	margin-bottom: 1em;
+}
+
+textarea, input, select {
+	font-family: inherit;
+	font-size: 1em;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+textarea {
+	resize: vertical;
+}
+
+ul.post-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+ul.post-list li {
+	margin-bottom: 0.5em;
+}
+
+div.reply-list > .reply-item {
+	margin-left: 1em;
+	padding-left: 1em;
+	border-left: 2px solid #ccc;
+	margin-bottom: 1em;
+}
+
+.reply-header {
+	margin-bottom: 0.5rem;
+}
+
+article {
+	font-family: "Century Schoolbook", "TeX Gyre Schola", "Century", serif;
+	white-space: pre-wrap;
+}

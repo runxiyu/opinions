@@ -1,0 +1,58 @@
+{{define "postview"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{.Post.Title}}</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>{{.Post.Title}}</h1>
+{{if .Post.Source}}
+<p><em>from {{.Post.Source}} via {{.Post.Author}}</em></p>
+{{else}}
+<p><em>by {{.Post.Author}}</em></p>
+{{end}}
+<article>{{.Post.Body}}</article>
+
+<h2>Replies</h2>
+<div class="reply-list">
+{{range .Replies}}
+	<div class="reply-item">
+		{{ if eq .Type "opinion" }}
+			<p class="reply-header">Opinion of {{ .Author }}</p>
+		{{ else if eq .Type "concur" }}
+			<p class="reply-header">{{ .Author }}, concurring</p>
+		{{ else if eq .Type "concurj" }}
+			<p class="reply-header">{{ .Author }}, concurring in the judgement</p>
+		{{ else if eq .Type "dissent" }}
+			<p class="reply-header">{{ .Author }}, dissenting</p>
+		{{ else }}
+			<p class="reply-header"><strong>[{{.Type}}]</strong> {{.Author}}</p>
+		{{ end }}
+		<article>{{.Body}}</article>
+	</div>
+{{else}}
+	<p>No replies yet.</p>
+{{end}}
+</div>
+
+<details>
+<summary>Reply</summary>
+<form method="POST" action="/post/{{.Post.ID}}" class="reply-form">
+	<p>
+		<select name="type" required>
+			<option value="opinion">Opinion</option>
+			<option value="concur">Concurrence</option>
+			<option value="concurj">Concurrence in the judgement</option>
+			<option value="dissent">Dissent</option>
+		</select>
+	</p>
+	<p><textarea name="body" rows="10" required></textarea></p>
+	<p><button type="submit">Post Reply</button></p>
+</form>
+</details>
+
+<p><a href="/">Back</a></p>
+</body>
+</html>
+{{end}}

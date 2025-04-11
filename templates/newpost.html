@@ -1,0 +1,19 @@
+{{define "newpost"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Post</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>New Post</h1>
+<form method="POST" action="/post">
+	<p>Title: <input name="title" required></p>
+	<p>Source: <input name="source"></p>
+	<p>Body:<br><textarea name="body" rows="10" required></textarea></p>
+	<p><button type="submit">Submit</button></p>
+</form>
+<p><a href="/">Back</a></p>
+</body>
+</html>
+{{end}}

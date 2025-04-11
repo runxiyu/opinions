@@ -1,0 +1,20 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forum</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Forum</h1>
+<p><a href="/post">New Post</a> | <a href="/logout">Logout</a></p>
+<ul class="post-list">
+{{range .Posts}}
+	<li><a href="/post/{{.ID}}">{{.Title}}</a> {{if .Source}}via{{else}}by{{end}} {{.Author}}</li>
+{{else}}
+	<li>No posts yet.</li>
+{{end}}
+</ul>
+</body>
+</html>
+{{end}}
